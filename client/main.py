@@ -2,6 +2,8 @@ import tkinter as tk
 from tkinter import scrolledtext
 import requests
 import socketio
+from tkinter import filedialog
+import os
 
 class ChatClient:
     def __init__(self, master):

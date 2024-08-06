@@ -11,6 +11,12 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///chat.db'
 db = SQLAlchemy(app)
 socketio = SocketIO(app)
 
+@socketio.on('send_file')
+def handle_file(data):
+    file_name = data['file_name']
+    file_data = data['file_data']
+    user_id = data['user_id']
+
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(80), unique=True, nullable=False)
